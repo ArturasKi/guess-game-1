@@ -41,6 +41,7 @@ btnPlay.addEventListener("click", function () {
   win = false;
   guess.innerHTML = 3;
   score.textContent = 0;
+  points = 0;
   for (let i = 0; i < rectEl.length; i++) {
     rectEl[i].classList.remove("rect-element-selected");
   }
