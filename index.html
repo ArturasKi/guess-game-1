@@ -11,9 +11,11 @@
     <div class="scoreboard">
       <h2>FIND THE HIDDEN CAT</h2>
       <div class="scorebox">Score: <span class="score">0</span></div>
+      <div class="scorebox">Guess: <span class="guess">3</span></div>
     </div>
     <div class="play-container">
       <h1 class="correct-guess">WELL DONE!</h1>
+      <h1 class="lose">GAME OVER!</h1>
       <div class="rect-container">
         <div class="rect-element"></div>
         <div class="rect-element"></div>
@@ -24,7 +26,10 @@
         <div class="rect-element"></div>
         <div class="rect-element"></div>
       </div>
-      <button class="btn-again">NEXT ROUND</button>
+      <div class="btn-container">
+        <button class="btn-play hidden">PLAY AGAIN</button>
+        <button class="btn-next hidden">NEXT ROUND</button>
+      </div>
     </div>
     <script src="./script.js" type="module" defer></script>
   </body>
