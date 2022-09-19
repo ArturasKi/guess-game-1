@@ -1,0 +1,105 @@
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    height: 10%;
+}
+
+.scorebox {
+    height: auto;
+}
+
+.score {
+    font-weight: bold;
+}
+
+h2 {
+    height: auto;
+}
+
+.play-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
+    height: 90%;
+}
+
+.rect-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+}
+
+.rect-element {
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    background-color: black;
+    cursor: pointer;
+    z-index: 99;
+    position: relative;
+}
+
+.rect-element-selected {
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.rect-answer {
+    position: absolute;
+    font-weight: bold;
+    top: 22px;
+    left: 22px;
+    height: auto;
+    width: auto;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: none;
+    /* color: transparent; */
+}
+
+.correct-guess {
+    position: absolute;
+    top: 150px;
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-again {
+    margin-top: 50px;
+    height: 60px;
+    width: 150px;
+    cursor: pointer;
+}
