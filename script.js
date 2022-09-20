@@ -7,8 +7,6 @@ const guess = document.querySelector(".guess");
 const btnNext = document.querySelector(".btn-next");
 const btnPlay = document.querySelector(".btn-play");
 
-console.log(screen)
-
 let win = false;
 const winPoints = 3;
 let guessTimes = 4;
@@ -33,6 +31,7 @@ btnNext.addEventListener("click", function () {
       rectEl[i].classList.remove("rect-element-selected");
     }
     window.style.backgroundColor = 'lavender';
+    window.style.pointerEvents = 'visible';
     correct.classList.add("hidden");
     btnNext.classList.add("hidden");
   }
@@ -48,6 +47,7 @@ btnPlay.addEventListener("click", function () {
     rectEl[i].classList.remove("rect-element-selected");
   }
   window.style.backgroundColor = 'lavender';
+  window.style.pointerEvents = 'visible';
   lose.classList.add("hidden");
   correct.classList.add("hidden");
   btnPlay.classList.add("hidden");
@@ -65,7 +65,9 @@ function showHidden() {
         e.target.innerHTML !== '<div class="rect-answer">^_^</div>'
       ) {
         window.style.backgroundColor = 'lightcoral';
+        window.style.pointerEvents = 'none';
         lose.classList.remove("hidden");
+        btnPlay.style.pointerEvents = 'visible';
         btnPlay.classList.remove("hidden");
         btnNext.classList.add("hidden");
       } else if (
@@ -73,8 +75,10 @@ function showHidden() {
         guess.innerHTML >= "0"
       ) {
         btnNext.classList.remove("hidden");
+        btnNext.style.pointerEvents = 'visible';
         correct.classList.remove("hidden");
         window.style.backgroundColor = 'palegreen';
+        window.style.pointerEvents = 'none';
         score.textContent = points;
         win = true;
         points += winPoints;
