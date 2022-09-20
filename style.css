@@ -15,10 +15,10 @@ body {
 .scoreboard {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     gap: 5px;
-    height: 20%;
+    height: 25%;
 }
 
 .scorebox {
@@ -38,12 +38,17 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    height: auto;
+    text-align: center;
+}
+
 .play-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 75%;
 }
 
 .rect-container {
@@ -53,7 +58,7 @@ h1 {
     justify-content: center;
     align-items: center;
     max-width: 500px;
-    height: 200px;
+    max-height: 200px;
 }
 
 .rect-element {
@@ -91,7 +96,7 @@ h1 {
 
 .correct-guess {
     position: absolute;
-    top: 20%;
+    top: 25%;
     margin-top: 20px;
     width: auto;
     height: auto;
@@ -99,7 +104,7 @@ h1 {
 
 .lose {
     position: absolute;
-    top: 20%;
+    top: 25%;
     margin-top: 20px;
     width: auto;
     height: auto;
@@ -111,15 +116,14 @@ h1 {
 
 .btn-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    /* flex: 1; */
     gap: 20px;
     height: 200px;
 }
 
 .btn-next, .btn-play {
     border: none;
-    /* border-radius: 10px; */
     height: 60px;
     width: 150px;
     cursor: pointer;
@@ -128,7 +132,6 @@ h1 {
 }
 
 .btn-next:hover, .btn-play:hover {
-    /* background-color: palegoldenrod; */
     border: 3px solid lightblue;
 }
 
@@ -137,7 +140,7 @@ h1 {
         height: 70px;
         width: 70px;
         border-radius: 10px;
-        background-color: black;
+        background-color: orangered;
         cursor: pointer;
         z-index: 99;
         position: relative;
