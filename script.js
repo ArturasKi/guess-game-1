@@ -1,4 +1,4 @@
-const screen = document.querySelector(".play-container");
+const window = document.querySelector('body');
 const rectEl = document.querySelectorAll(".rect-element");
 const correct = document.querySelector(".correct-guess");
 const lose = document.querySelector(".lose");
@@ -6,6 +6,8 @@ const score = document.querySelector(".score");
 const guess = document.querySelector(".guess");
 const btnNext = document.querySelector(".btn-next");
 const btnPlay = document.querySelector(".btn-play");
+
+console.log(screen)
 
 let win = false;
 const winPoints = 3;
@@ -30,7 +32,7 @@ btnNext.addEventListener("click", function () {
     for (let i = 0; i < rectEl.length; i++) {
       rectEl[i].classList.remove("rect-element-selected");
     }
-    screen.style.backgroundColor = "lavender";
+    window.style.backgroundColor = 'lavender';
     correct.classList.add("hidden");
     btnNext.classList.add("hidden");
   }
@@ -45,7 +47,7 @@ btnPlay.addEventListener("click", function () {
   for (let i = 0; i < rectEl.length; i++) {
     rectEl[i].classList.remove("rect-element-selected");
   }
-  screen.style.backgroundColor = "lavender";
+  window.style.backgroundColor = 'lavender';
   lose.classList.add("hidden");
   correct.classList.add("hidden");
   btnPlay.classList.add("hidden");
@@ -57,13 +59,12 @@ function showHidden() {
     item.addEventListener("click", (e) => {
       newEl.classList.remove("rect-answer-hidden");
       guess.innerHTML -= 1;
-      console.log(guess.innerHTML);
       e.target.classList.add("rect-element-selected");
       if (
         guess.innerHTML === "0" &&
         e.target.innerHTML !== '<div class="rect-answer">^_^</div>'
       ) {
-        screen.style.backgroundColor = "red";
+        window.style.backgroundColor = 'lightcoral';
         lose.classList.remove("hidden");
         btnPlay.classList.remove("hidden");
         btnNext.classList.add("hidden");
@@ -73,7 +74,7 @@ function showHidden() {
       ) {
         btnNext.classList.remove("hidden");
         correct.classList.remove("hidden");
-        screen.style.backgroundColor = "lawngreen";
+        window.style.backgroundColor = 'palegreen';
         score.textContent = points;
         win = true;
         points += winPoints;

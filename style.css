@@ -5,31 +5,37 @@ body * {
     vertical-align: top;
     box-sizing: border-box;
     height: 100vh;
+    font-family: 'Comfortaa', cursive;
 }
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: lavender;
 }
 
 .scoreboard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: antiquewhite;
-    height: 10%;
+    gap: 5px;
+    height: 20%;
 }
 
 .scorebox {
     height: auto;
+    border: 1px solid black;
+    padding: 5px;
+    width: 150px;
+    text-align: center;
 }
 
 .score, .guess {
     font-weight: bold;
 }
 
-h2 {
+h1 {
     height: auto;
+    text-align: center;
 }
 
 .play-container {
@@ -37,8 +43,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: lavender;
-    height: 90%;
+    height: 80%;
 }
 
 .rect-container {
@@ -47,36 +52,38 @@ h2 {
     gap: 20px;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    max-width: 500px;
     height: 200px;
 }
 
 .rect-element {
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    width: 100px;
     border-radius: 10px;
-    background-color: black;
+    background-color:orangered;
     cursor: pointer;
     z-index: 99;
     position: relative;
 }
 
 .rect-element-selected {
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    width: 100px;
     border-radius: 10px;
     background-color: transparent;
     cursor: pointer;
     position: relative;
+    border: 1px solid orangered;
 }
 
 .rect-answer {
     position: absolute;
     font-weight: bold;
-    top: 22px;
-    left: 22px;
+    top: 38px;
+    left: 38px;
     height: auto;
     width: auto;
+    color: orangered;
     pointer-events: none;
     user-select: none;
     text-shadow: none;
@@ -84,7 +91,7 @@ h2 {
 
 .correct-guess {
     position: absolute;
-    top: 100px;
+    top: 20%;
     margin-top: 20px;
     width: auto;
     height: auto;
@@ -92,7 +99,7 @@ h2 {
 
 .lose {
     position: absolute;
-    top: 100px;
+    top: 20%;
     margin-top: 20px;
     width: auto;
     height: auto;
@@ -111,7 +118,53 @@ h2 {
 }
 
 .btn-next, .btn-play {
+    border: none;
+    /* border-radius: 10px; */
     height: 60px;
     width: 150px;
     cursor: pointer;
+    font-weight: bold;
+    background-color:aliceblue;
+}
+
+.btn-next:hover, .btn-play:hover {
+    /* background-color: palegoldenrod; */
+    border: 3px solid lightblue;
+}
+
+@media only screen and (max-width: 550px) {
+    .rect-element {
+        height: 70px;
+        width: 70px;
+        border-radius: 10px;
+        background-color: black;
+        cursor: pointer;
+        z-index: 99;
+        position: relative;
+    }
+    
+    .rect-element-selected {
+        height: 70px;
+        width: 70px;
+        border-radius: 10px;
+        background-color: transparent;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .rect-answer {
+        position: absolute;
+        font-weight: bold;
+        top: 22px;
+        left: 22px;
+        height: auto;
+        width: auto;
+        pointer-events: none;
+        user-select: none;
+        text-shadow: none;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
 }
