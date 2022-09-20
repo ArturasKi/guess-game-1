@@ -1,4 +1,4 @@
-const window = document.querySelector('body');
+const window = document.querySelector("body");
 const rectEl = document.querySelectorAll(".rect-element");
 const correct = document.querySelector(".correct-guess");
 const lose = document.querySelector(".lose");
@@ -6,22 +6,28 @@ const score = document.querySelector(".score");
 const guess = document.querySelector(".guess");
 const btnNext = document.querySelector(".btn-next");
 const btnPlay = document.querySelector(".btn-play");
+const newEl = document.createElement("div");
 
 let win = false;
 const winPoints = 3;
 let guessTimes = 4;
 let points = 0;
 
-const newEl = document.createElement("div");
 newEl.classList.add("rect-answer");
 newEl.textContent = "^_^";
-
 correct.classList.add("hidden");
 lose.classList.add("hidden");
 
-rectEl[Math.floor(Math.random() * rectEl.length)].appendChild(newEl);
+const makeVisible = function () {
+  rectEl.forEach((item) => (item.style.pointerEvents = "visible"));
+};
+
+const makeHidden = function () {
+  rectEl.forEach((item) => (item.style.pointerEvents = "none"));
+};
 
 btnNext.addEventListener("click", function () {
+  makeVisible();
   if (win === true) {
     rectEl[Math.floor(Math.random() * rectEl.length)].appendChild(newEl);
     win = false;
@@ -30,14 +36,14 @@ btnNext.addEventListener("click", function () {
     for (let i = 0; i < rectEl.length; i++) {
       rectEl[i].classList.remove("rect-element-selected");
     }
-    window.style.backgroundColor = 'lavender';
-    window.style.pointerEvents = 'visible';
+    window.style.backgroundColor = "lavender";
     correct.classList.add("hidden");
     btnNext.classList.add("hidden");
   }
 });
 
 btnPlay.addEventListener("click", function () {
+  makeVisible();
   rectEl[Math.floor(Math.random() * rectEl.length)].appendChild(newEl);
   win = false;
   guess.innerHTML = guessTimes;
@@ -46,8 +52,7 @@ btnPlay.addEventListener("click", function () {
   for (let i = 0; i < rectEl.length; i++) {
     rectEl[i].classList.remove("rect-element-selected");
   }
-  window.style.backgroundColor = 'lavender';
-  window.style.pointerEvents = 'visible';
+  window.style.backgroundColor = "lavender";
   lose.classList.add("hidden");
   correct.classList.add("hidden");
   btnPlay.classList.add("hidden");
@@ -60,25 +65,28 @@ function showHidden() {
       newEl.classList.remove("rect-answer-hidden");
       guess.innerHTML -= 1;
       e.target.classList.add("rect-element-selected");
+      e.target.style.pointerEvents = "none";
       if (
         guess.innerHTML === "0" &&
         e.target.innerHTML !== '<div class="rect-answer">^_^</div>'
       ) {
-        window.style.backgroundColor = 'lightcoral';
-        window.style.pointerEvents = 'none';
+        makeHidden();
+        window.style.backgroundColor = "lightcoral";
+        window.style.pointerEvents = "none";
         lose.classList.remove("hidden");
-        btnPlay.style.pointerEvents = 'visible';
+        btnPlay.style.pointerEvents = "visible";
         btnPlay.classList.remove("hidden");
         btnNext.classList.add("hidden");
       } else if (
         e.target.innerHTML === '<div class="rect-answer">^_^</div>' &&
         guess.innerHTML >= "0"
       ) {
+        makeHidden();
         btnNext.classList.remove("hidden");
-        btnNext.style.pointerEvents = 'visible';
+        btnNext.style.pointerEvents = "visible";
         correct.classList.remove("hidden");
-        window.style.backgroundColor = 'palegreen';
-        window.style.pointerEvents = 'none';
+        window.style.backgroundColor = "palegreen";
+        window.style.pointerEvents = "none";
         score.textContent = points;
         win = true;
         points += winPoints;
