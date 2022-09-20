@@ -9,7 +9,7 @@ const btnPlay = document.querySelector(".btn-play");
 
 let win = false;
 const winPoints = 3;
-let guessTimes = 3;
+let guessTimes = 4;
 let points = 0;
 
 const newEl = document.createElement("div");
@@ -25,7 +25,7 @@ btnNext.addEventListener("click", function () {
   if (win === true) {
     rectEl[Math.floor(Math.random() * rectEl.length)].appendChild(newEl);
     win = false;
-    guess.innerHTML = 3;
+    guess.innerHTML;
     score.textContent = points;
     for (let i = 0; i < rectEl.length; i++) {
       rectEl[i].classList.remove("rect-element-selected");
@@ -39,7 +39,7 @@ btnNext.addEventListener("click", function () {
 btnPlay.addEventListener("click", function () {
   rectEl[Math.floor(Math.random() * rectEl.length)].appendChild(newEl);
   win = false;
-  guess.innerHTML = 3;
+  guess.innerHTML = guessTimes;
   score.textContent = 0;
   points = 0;
   for (let i = 0; i < rectEl.length; i++) {
@@ -77,6 +77,7 @@ function showHidden() {
         score.textContent = points;
         win = true;
         points += winPoints;
+        guess.innerHTML = +guess.innerHTML + guessTimes;
       }
     })
   );
